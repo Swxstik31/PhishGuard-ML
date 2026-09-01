@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHISHING URL DETECTOR</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="dot-grid"></div>
+
+    <nav class="top-nav">
+        <div class="nav-left">
+            <div class="dot-logo"></div>
+            <div class="nav-title">PHISHING<br>URL DETECTOR</div>
+        </div>
+        <div class="nav-center">
+            <span class="nav-item">STATIC ANALYSIS</span>
+            <span class="nav-item">ML ENGINE</span>
+            <span class="nav-item">LOCAL</span>
+        </div>
+        <div class="nav-right">
+            <span class="status-dot"></span>
+            <span class="status-text">SYSTEM ONLINE</span>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero">
+            <div class="tech-label">[ THREAT ANALYSIS / 01 ]</div>
+            <h1 class="hero-title">Is this URL<br>safe?</h1>
+            <p class="hero-subtitle">Analyze suspicious URLs using machine-learning-based<br>static security analysis.</p>
+            
+            <div class="input-container">
+                <input type="text" id="url-input" placeholder="Enter URL to analyze..." autocomplete="off">
+                <button id="analyze-btn">
+                    <span class="btn-text">ANALYZE</span>
+                    <span class="btn-scan-line"></span>
+                </button>
+            </div>
+            <p class="input-note">Your URL is analyzed as text. We never open or visit the submitted URL.</p>
+        </section>
+
+        <section class="demo-section">
+            <div class="demo-header">
+                <span class="demo-line"></span>
+                <span class="demo-title">QUICK TEST</span>
+                <span class="demo-line"></span>
+            </div>
+            <div class="demo-buttons">
+                <button class="demo-btn" data-url="https://www.example.com">SAFE EXAMPLE</button>
+                <button class="demo-btn" data-url="http://secure-login-verify-example.com/account/login">SUSPICIOUS EXAMPLE</button>
+                <button class="demo-btn" data-url="http://192.0.2.10/login">IP EXAMPLE</button>
+            </div>
+            <p class="demo-note">DEMO / TEST examples</p>
+        </section>
+        
+        <div id="error-message" class="error-msg hidden"></div>
+
+        <section id="results-section" class="results-section hidden">
+            <div class="result-header">
+                <span class="tech-label">[ ANALYSIS RESULT ]</span>
+            </div>
+            
+            <div class="score-card" id="score-card">
+                <div class="score-circle">
+                    <svg viewBox="0 0 100 100" class="score-svg">
+                        <circle cx="50" cy="50" r="45" class="score-bg"></circle>
+                        <circle cx="50" cy="50" r="45" class="score-progress" id="score-progress"></circle>
+                    </svg>
+                    <div class="score-text-container">
+                        <span class="score-value" id="res-score-value">82</span>
+                        <span class="score-max">/100</span>
+                        <span class="score-label-inner">RISK SCORE</span>
+                    </div>
+                </div>
+                <div class="verdict-container">
+                    <h2 class="verdict-title" id="res-verdict">HIGH RISK</h2>
+                    <p class="verdict-subtitle" id="res-verdict-sub">POSSIBLE PHISHING</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">PHISHING PROBABILITY</div>
+                    <div class="stat-value" id="res-prob">82%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">VERDICT</div>
+                    <div class="stat-value" id="res-verdict-sm">HIGH RISK</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">ANALYSIS TYPE</div>
+                    <div class="stat-value">STATIC URL</div>
+                </div>
+            </div>
+
+            <div class="indicators-section">
+                <h3 class="section-title">SECURITY INDICATORS</h3>
+                <div class="indicators-list" id="res-indicators">
+                    <!-- Dynamic -->
+                </div>
+            </div>
+
+            <div class="features-section">
+                <h3 class="section-title">URL FEATURE ANALYSIS</h3>
+                <div class="features-grid" id="res-features">
+                    <!-- Dynamic -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="tech-footer">
+        <div class="footer-left">
+            <span>PHISHING URL DETECTOR</span><br>
+            <span class="footer-dim">v1.0</span>
+        </div>
+        <div class="footer-center">
+            <span>Built for cybersecurity analysis and educational purposes.</span>
+        </div>
+        <div class="footer-right">
+            <span>PYTHON / FLASK</span><br>
+            <span>RANDOM FOREST</span><br>
+            <span>STATIC ANALYSIS</span>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}?v=4"></script>
+</body>
+</html>
