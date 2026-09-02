@@ -102,6 +102,13 @@ except Exception as e:
 def home():
     return render_template('index.html')
 
+@app.route('/health', methods=['GET'])
+def health():
+    return jsonify({
+        "status": "ok",
+        "model": "available" if model is not None else "unavailable"
+    })
+
 @app.route('/feature-importance', methods=['GET'])
 def feature_importance():
     importance_path = os.path.join(base_dir, 'model', 'feature_importance.json')
