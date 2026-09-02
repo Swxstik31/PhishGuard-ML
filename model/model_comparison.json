@@ -1,0 +1,90 @@
+{
+    "selected_model": "Logistic Regression",
+    "metrics": {
+        "Logistic Regression": {
+            "Accuracy": 1.0,
+            "Precision": 1.0,
+            "Recall": 1.0,
+            "F1": 1.0,
+            "ROC-AUC": 1.0,
+            "ConfusionMatrix": [
+                [
+                    1000,
+                    0
+                ],
+                [
+                    0,
+                    1000
+                ]
+            ]
+        },
+        "Decision Tree": {
+            "Accuracy": 1.0,
+            "Precision": 1.0,
+            "Recall": 1.0,
+            "F1": 1.0,
+            "ROC-AUC": 1.0,
+            "ConfusionMatrix": [
+                [
+                    1000,
+                    0
+                ],
+                [
+                    0,
+                    1000
+                ]
+            ]
+        },
+        "Random Forest": {
+            "Accuracy": 1.0,
+            "Precision": 1.0,
+            "Recall": 1.0,
+            "F1": 1.0,
+            "ROC-AUC": 1.0,
+            "ConfusionMatrix": [
+                [
+                    1000,
+                    0
+                ],
+                [
+                    0,
+                    1000
+                ]
+            ]
+        },
+        "SVM": {
+            "Accuracy": 1.0,
+            "Precision": 1.0,
+            "Recall": 1.0,
+            "F1": 1.0,
+            "ROC-AUC": 1.0,
+            "ConfusionMatrix": [
+                [
+                    1000,
+                    0
+                ],
+                [
+                    0,
+                    1000
+                ]
+            ]
+        },
+        "Gradient Boosting": {
+            "Accuracy": 1.0,
+            "Precision": 1.0,
+            "Recall": 1.0,
+            "F1": 1.0,
+            "ROC-AUC": 1.0,
+            "ConfusionMatrix": [
+                [
+                    1000,
+                    0
+                ],
+                [
+                    0,
+                    1000
+                ]
+            ]
+        }
+    }
+}

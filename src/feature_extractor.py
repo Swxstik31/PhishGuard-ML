@@ -1,67 +1,87 @@
 import re
-from urllib.parse import urlparse
+import math
+from urllib.parse import urlparse, parse_qs
+
+def shannon_entropy(data):
+    if not data:
+        return 0
+    entropy = 0
+    for x in set(data):
+        p_x = float(data.count(x)) / len(data)
+        entropy -= p_x * math.log(p_x, 2)
+    return entropy
 
 def extract_features(url):
-    """
-    Extracts numerical features from a URL for machine learning.
-    Returns a dictionary of features in a consistent order.
-    """
     features = {}
+    url_lower = url.lower()
     
-    # URL length
+    # ---------------------------
+    # EXISTING 10 FEATURES
+    # ---------------------------
     features['url_length'] = len(url)
-    
-    # Number of dots
     features['num_dots'] = url.count('.')
-    
-    # Number of hyphens
     features['num_hyphens'] = url.count('-')
     
-    # Number of special characters
     special_chars = set(['@', '?', '=', '&', '%', '_', '/'])
     features['num_special_chars'] = sum(1 for c in url if c in special_chars)
     
-    # Presence of @ symbol
     features['has_at_symbol'] = 1 if '@' in url else 0
     
-    # Presence of an IP address
     ip_pattern = re.compile(r'\b(?:\d{1,3}\.){3}\d{1,3}\b')
     features['has_ip'] = 1 if ip_pattern.search(url) else 0
+    features['has_https'] = 1 if url_lower.startswith('https://') else 0
     
-    # Presence of HTTPS
-    features['has_https'] = 1 if url.startswith('https://') else 0
-    
-    # Number of subdomains
-    try:
-        parsed_url = urlparse(url)
-        netloc = parsed_url.netloc
-        if not netloc:
-            domain_part = url.split('/')[2] if '//' in url else url.split('/')[0]
-            features['num_subdomains'] = domain_part.count('.') - 1 if domain_part.count('.') > 0 else 0
-        else:
-            features['num_subdomains'] = netloc.count('.') - 1 if netloc.count('.') > 0 else 0
-    except:
-        features['num_subdomains'] = 0
+    parsed_url = urlparse(url)
+    netloc = parsed_url.netloc
+    if not netloc:
+        domain_part = url.split('/')[2] if '//' in url else url.split('/')[0]
+        features['num_subdomains'] = max(0, domain_part.count('.') - 1)
+    else:
+        features['num_subdomains'] = max(0, netloc.count('.') - 1)
         
-    if features['num_subdomains'] < 0:
-        features['num_subdomains'] = 0
-    
-    # Presence of suspicious keywords
     suspicious_keywords = ['login', 'verify', 'verification', 'account', 'secure', 
                            'update', 'password', 'banking', 'confirm', 'signin']
-    url_lower = url.lower()
     features['suspicious_keywords_count'] = sum(1 for keyword in suspicious_keywords if keyword in url_lower)
     
-    # Whether a known URL-shortening pattern/service is detected
     shorteners = ['bit.ly', 'tinyurl.com', 'goo.gl', 't.co', 'ow.ly', 'is.gd', 'buff.ly']
     features['is_shortened'] = 1 if any(shortener in url_lower for shortener in shorteners) else 0
+    
+    # ---------------------------
+    # NEW EXTENDED FEATURES
+    # ---------------------------
+    hostname = netloc if netloc else (url.split('/')[2] if '//' in url else url.split('/')[0])
+    features['domain_length'] = len(hostname)
+    features['path_length'] = len(parsed_url.path)
+    features['query_length'] = len(parsed_url.query)
+    
+    num_digits = sum(c.isdigit() for c in url)
+    features['num_digits'] = num_digits
+    features['num_slashes'] = url.count('/')
+    
+    # Query params length (keys in query)
+    features['num_query_params'] = len(parse_qs(parsed_url.query)) if parsed_url.query else 0
+    
+    features['num_equals'] = url.count('=')
+    features['num_ampersands'] = url.count('&')
+    features['num_percents'] = url.count('%')
+    features['num_at_chars'] = url.count('@')
+    features['num_underscores'] = url.count('_')
+    
+    features['has_suspicious_keyword'] = 1 if features['suspicious_keywords_count'] > 0 else 0
+    features['has_punycode'] = 1 if 'xn--' in hostname.lower() else 0
+    
+    # Double slash in path (excluding protocol)
+    path_and_query = url[url.find('//')+2:] if '//' in url else url
+    path_and_query = path_and_query[path_and_query.find('/'):] if '/' in path_and_query else ""
+    features['has_double_slash_in_path'] = 1 if '//' in path_and_query else 0
+    
+    features['entropy_hostname'] = shannon_entropy(hostname)
+    features['entropy_url'] = shannon_entropy(url)
+    features['ratio_digits'] = num_digits / len(url) if len(url) > 0 else 0
     
     return features
 
 def get_security_indicators(url):
-    """
-    Returns human-readable security indicators based on the extracted features.
-    """
     indicators = []
     features = extract_features(url)
     
@@ -90,5 +110,11 @@ def get_security_indicators(url):
         
     if features['is_shortened'] == 1:
         indicators.append("⚠ URL shortening service detected")
+        
+    if features['has_punycode'] == 1:
+        indicators.append("⚠ Punycode domain detected")
+        
+    if features['has_double_slash_in_path'] == 1:
+        indicators.append("⚠ Double slash in URL path")
         
     return indicators

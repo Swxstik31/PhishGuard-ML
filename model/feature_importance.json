@@ -1,0 +1,164 @@
+[
+    {
+        "feature": "path_length",
+        "coefficient": 2.5937,
+        "importance": 2.5937,
+        "direction": "increases_phishing_risk"
+    },
+    {
+        "feature": "entropy_url",
+        "coefficient": -1.4746,
+        "importance": 1.4746,
+        "direction": "decreases_phishing_risk"
+    },
+    {
+        "feature": "has_https",
+        "coefficient": -1.0562,
+        "importance": 1.0562,
+        "direction": "decreases_phishing_risk"
+    },
+    {
+        "feature": "num_digits",
+        "coefficient": 0.9426,
+        "importance": 0.9426,
+        "direction": "increases_phishing_risk"
+    },
+    {
+        "feature": "entropy_hostname",
+        "coefficient": -0.8325,
+        "importance": 0.8325,
+        "direction": "decreases_phishing_risk"
+    },
+    {
+        "feature": "domain_length",
+        "coefficient": 0.6081,
+        "importance": 0.6081,
+        "direction": "increases_phishing_risk"
+    },
+    {
+        "feature": "is_shortened",
+        "coefficient": 0.5909,
+        "importance": 0.5909,
+        "direction": "increases_phishing_risk"
+    },
+    {
+        "feature": "query_length",
+        "coefficient": 0.4046,
+        "importance": 0.4046,
+        "direction": "increases_phishing_risk"
+    },
+    {
+        "feature": "num_special_chars",
+        "coefficient": 0.3681,
+        "importance": 0.3681,
+        "direction": "increases_phishing_risk"
+    },
+    {
+        "feature": "url_length",
+        "coefficient": -0.3454,
+        "importance": 0.3454,
+        "direction": "decreases_phishing_risk"
+    },
+    {
+        "feature": "num_slashes",
+        "coefficient": 0.3094,
+        "importance": 0.3094,
+        "direction": "increases_phishing_risk"
+    },
+    {
+        "feature": "num_hyphens",
+        "coefficient": -0.2773,
+        "importance": 0.2773,
+        "direction": "decreases_phishing_risk"
+    },
+    {
+        "feature": "has_punycode",
+        "coefficient": -0.2539,
+        "importance": 0.2539,
+        "direction": "decreases_phishing_risk"
+    },
+    {
+        "feature": "num_dots",
+        "coefficient": -0.2151,
+        "importance": 0.2151,
+        "direction": "decreases_phishing_risk"
+    },
+    {
+        "feature": "num_subdomains",
+        "coefficient": 0.1781,
+        "importance": 0.1781,
+        "direction": "increases_phishing_risk"
+    },
+    {
+        "feature": "ratio_digits",
+        "coefficient": 0.043,
+        "importance": 0.043,
+        "direction": "increases_phishing_risk"
+    },
+    {
+        "feature": "has_ip",
+        "coefficient": 0.0275,
+        "importance": 0.0275,
+        "direction": "increases_phishing_risk"
+    },
+    {
+        "feature": "num_equals",
+        "coefficient": 0.0195,
+        "importance": 0.0195,
+        "direction": "increases_phishing_risk"
+    },
+    {
+        "feature": "num_underscores",
+        "coefficient": 0.0195,
+        "importance": 0.0195,
+        "direction": "increases_phishing_risk"
+    },
+    {
+        "feature": "num_query_params",
+        "coefficient": 0.0176,
+        "importance": 0.0176,
+        "direction": "increases_phishing_risk"
+    },
+    {
+        "feature": "num_ampersands",
+        "coefficient": 0.01,
+        "importance": 0.01,
+        "direction": "increases_phishing_risk"
+    },
+    {
+        "feature": "has_suspicious_keyword",
+        "coefficient": -0.0043,
+        "importance": 0.0043,
+        "direction": "decreases_phishing_risk"
+    },
+    {
+        "feature": "suspicious_keywords_count",
+        "coefficient": -0.0042,
+        "importance": 0.0042,
+        "direction": "decreases_phishing_risk"
+    },
+    {
+        "feature": "num_percents",
+        "coefficient": 0.0003,
+        "importance": 0.0003,
+        "direction": "increases_phishing_risk"
+    },
+    {
+        "feature": "has_double_slash_in_path",
+        "coefficient": 0.0001,
+        "importance": 0.0001,
+        "direction": "increases_phishing_risk"
+    },
+    {
+        "feature": "has_at_symbol",
+        "coefficient": 0.0,
+        "importance": 0.0,
+        "direction": "decreases_phishing_risk"
+    },
+    {
+        "feature": "num_at_chars",
+        "coefficient": 0.0,
+        "importance": 0.0,
+        "direction": "decreases_phishing_risk"
+    }
+]

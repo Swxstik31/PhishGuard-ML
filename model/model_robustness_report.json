@@ -1,0 +1,363 @@
+{
+    "metrics": {
+        "number_of_test_cases": 32,
+        "prediction_stability": "93.75%",
+        "average_probability_change": 0.0515,
+        "maximum_probability_change": 0.9996,
+        "number_of_verdict_changes": 2
+    },
+    "test_cases": [
+        {
+            "original_url": "http://example.com/login",
+            "transformed_url": "http://sub.example.com/login",
+            "transformation_applied": "add_subdomain",
+            "original_phishing_probability": 0.9987,
+            "transformed_phishing_probability": 0.9991,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://example.com/login",
+            "transformed_url": "https://example.com/login",
+            "transformation_applied": "change_to_https",
+            "original_phishing_probability": 0.9987,
+            "transformed_phishing_probability": 0.9942,
+            "original_risk_score": 100,
+            "transformed_risk_score": 99,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://example.com/login",
+            "transformed_url": "http://example.com/login/auth/verify/user/session/login",
+            "transformation_applied": "add_long_path",
+            "original_phishing_probability": 0.9987,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://example.com/login",
+            "transformed_url": "http://example.com/login?id=123456789",
+            "transformation_applied": "add_digits",
+            "original_phishing_probability": 0.9987,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://example.com/login",
+            "transformed_url": "http://example-test-node.com/login",
+            "transformation_applied": "add_hyphens",
+            "original_phishing_probability": 0.9987,
+            "transformed_phishing_probability": 0.9997,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://example.com/login",
+            "transformed_url": "http://example.com/login?token=a@b!c#d$",
+            "transformation_applied": "add_special_chars",
+            "original_phishing_probability": 0.9987,
+            "transformed_phishing_probability": 0.998,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://example.com/login",
+            "transformed_url": "http://example.com/login?secure=update&password=confirm&account=verify",
+            "transformation_applied": "add_suspicious_keywords",
+            "original_phishing_probability": 0.9987,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://example.com/login",
+            "transformed_url": "http://a.b.c.d.e.example.com/login",
+            "transformation_applied": "add_dots",
+            "original_phishing_probability": 0.9987,
+            "transformed_phishing_probability": 0.9999,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "https://www.example.com",
+            "transformed_url": "https://sub.www.example.com",
+            "transformation_applied": "add_subdomain",
+            "original_phishing_probability": 0.0004,
+            "transformed_phishing_probability": 0.0007,
+            "original_risk_score": 0,
+            "transformed_risk_score": 0,
+            "original_verdict": "LOW RISK",
+            "transformed_verdict": "LOW RISK"
+        },
+        {
+            "original_url": "https://www.example.com",
+            "transformed_url": "http://www.example.com",
+            "transformation_applied": "change_to_http",
+            "original_phishing_probability": 0.0004,
+            "transformed_phishing_probability": 0.0019,
+            "original_risk_score": 0,
+            "transformed_risk_score": 0,
+            "original_verdict": "LOW RISK",
+            "transformed_verdict": "LOW RISK"
+        },
+        {
+            "original_url": "https://www.example.com",
+            "transformed_url": "https://www.example.com/auth/verify/user/session/login",
+            "transformation_applied": "add_long_path",
+            "original_phishing_probability": 0.0004,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 0,
+            "transformed_risk_score": 100,
+            "original_verdict": "LOW RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "https://www.example.com",
+            "transformed_url": "https://www.example.com?id=123456789",
+            "transformation_applied": "add_digits",
+            "original_phishing_probability": 0.0004,
+            "transformed_phishing_probability": 0.6177,
+            "original_risk_score": 0,
+            "transformed_risk_score": 62,
+            "original_verdict": "LOW RISK",
+            "transformed_verdict": "SUSPICIOUS"
+        },
+        {
+            "original_url": "https://www.example.com",
+            "transformed_url": "https://www-test-node.example.com",
+            "transformation_applied": "add_hyphens",
+            "original_phishing_probability": 0.0004,
+            "transformed_phishing_probability": 0.0015,
+            "original_risk_score": 0,
+            "transformed_risk_score": 0,
+            "original_verdict": "LOW RISK",
+            "transformed_verdict": "LOW RISK"
+        },
+        {
+            "original_url": "https://www.example.com",
+            "transformed_url": "https://www.example.com?token=a@b!c#d$",
+            "transformation_applied": "add_special_chars",
+            "original_phishing_probability": 0.0004,
+            "transformed_phishing_probability": 0.0002,
+            "original_risk_score": 0,
+            "transformed_risk_score": 0,
+            "original_verdict": "LOW RISK",
+            "transformed_verdict": "LOW RISK"
+        },
+        {
+            "original_url": "https://www.example.com",
+            "transformed_url": "https://www.example.com?secure=update&password=confirm&account=verify",
+            "transformation_applied": "add_suspicious_keywords",
+            "original_phishing_probability": 0.0004,
+            "transformed_phishing_probability": 0.0146,
+            "original_risk_score": 0,
+            "transformed_risk_score": 1,
+            "original_verdict": "LOW RISK",
+            "transformed_verdict": "LOW RISK"
+        },
+        {
+            "original_url": "https://www.example.com",
+            "transformed_url": "https://a.b.c.d.e.www.example.com",
+            "transformation_applied": "add_dots",
+            "original_phishing_probability": 0.0004,
+            "transformed_phishing_probability": 0.0044,
+            "original_risk_score": 0,
+            "transformed_risk_score": 0,
+            "original_verdict": "LOW RISK",
+            "transformed_verdict": "LOW RISK"
+        },
+        {
+            "original_url": "http://secure-login-verify-example.com/account/login",
+            "transformed_url": "http://sub.secure-login-verify-example.com/account/login",
+            "transformation_applied": "add_subdomain",
+            "original_phishing_probability": 1.0,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://secure-login-verify-example.com/account/login",
+            "transformed_url": "https://secure-login-verify-example.com/account/login",
+            "transformation_applied": "change_to_https",
+            "original_phishing_probability": 1.0,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://secure-login-verify-example.com/account/login",
+            "transformed_url": "http://secure-login-verify-example.com/account/login/auth/verify/user/session/login",
+            "transformation_applied": "add_long_path",
+            "original_phishing_probability": 1.0,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://secure-login-verify-example.com/account/login",
+            "transformed_url": "http://secure-login-verify-example.com/account/login?id=123456789",
+            "transformation_applied": "add_digits",
+            "original_phishing_probability": 1.0,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://secure-login-verify-example.com/account/login",
+            "transformed_url": "http://secure-login-verify-example-test-node.com/account/login",
+            "transformation_applied": "add_hyphens",
+            "original_phishing_probability": 1.0,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://secure-login-verify-example.com/account/login",
+            "transformed_url": "http://secure-login-verify-example.com/account/login?token=a@b!c#d$",
+            "transformation_applied": "add_special_chars",
+            "original_phishing_probability": 1.0,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://secure-login-verify-example.com/account/login",
+            "transformed_url": "http://secure-login-verify-example.com/account/login?secure=update&password=confirm&account=verify",
+            "transformation_applied": "add_suspicious_keywords",
+            "original_phishing_probability": 1.0,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://secure-login-verify-example.com/account/login",
+            "transformed_url": "http://a.b.c.d.e.secure-login-verify-example.com/account/login",
+            "transformation_applied": "add_dots",
+            "original_phishing_probability": 1.0,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://192.0.2.10/login",
+            "transformed_url": "http://sub.192.0.2.10/login",
+            "transformation_applied": "add_subdomain",
+            "original_phishing_probability": 1.0,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://192.0.2.10/login",
+            "transformed_url": "https://192.0.2.10/login",
+            "transformation_applied": "change_to_https",
+            "original_phishing_probability": 1.0,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://192.0.2.10/login",
+            "transformed_url": "http://192.0.2.10/login/auth/verify/user/session/login",
+            "transformation_applied": "add_long_path",
+            "original_phishing_probability": 1.0,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://192.0.2.10/login",
+            "transformed_url": "http://192.0.2.10/login?id=123456789",
+            "transformation_applied": "add_digits",
+            "original_phishing_probability": 1.0,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://192.0.2.10/login",
+            "transformed_url": "http://192-test-node.0.2.10/login",
+            "transformation_applied": "add_hyphens",
+            "original_phishing_probability": 1.0,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://192.0.2.10/login",
+            "transformed_url": "http://192.0.2.10/login?token=a@b!c#d$",
+            "transformation_applied": "add_special_chars",
+            "original_phishing_probability": 1.0,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://192.0.2.10/login",
+            "transformed_url": "http://192.0.2.10/login?secure=update&password=confirm&account=verify",
+            "transformation_applied": "add_suspicious_keywords",
+            "original_phishing_probability": 1.0,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        },
+        {
+            "original_url": "http://192.0.2.10/login",
+            "transformed_url": "http://a.b.c.d.e.192.0.2.10/login",
+            "transformation_applied": "add_dots",
+            "original_phishing_probability": 1.0,
+            "transformed_phishing_probability": 1.0,
+            "original_risk_score": 100,
+            "transformed_risk_score": 100,
+            "original_verdict": "HIGH RISK",
+            "transformed_verdict": "HIGH RISK"
+        }
+    ]
+}
