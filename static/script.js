@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const urlInput = document.getElementById('url-input');
     const analyzeBtn = document.getElementById('analyze-btn');
+    const resetBtn = document.getElementById('reset-btn');
     const btnText = analyzeBtn.querySelector('.btn-text');
     const errorMsg = document.getElementById('error-message');
     const resultsSection = document.getElementById('results-section');
@@ -254,6 +255,14 @@ document.addEventListener('DOMContentLoaded', () => {
             hideResults();
         });
     });
+
+    if (resetBtn) {
+        resetBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            urlInput.value = '';
+            hideResults();
+        });
+    }
 
     analyzeBtn.addEventListener('click', (e) => {
         e.preventDefault();

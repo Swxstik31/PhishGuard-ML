@@ -1080,3 +1080,19 @@ body {
         grid-template-columns: 1fr 1fr;
     }
 }
+html { scroll-behavior: smooth; }
+button:active {
+    transform: scale(0.98) !important;
+}
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+@media (max-width: 600px) {
+    #reset-btn {
+        width: 100%;
+        margin-left: 0 !important;
+        padding: 1.25rem !important;
+    }
+}
